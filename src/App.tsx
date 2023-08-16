@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Explore from './components/Explore';
+import SideMenu from './components/SideMenu';
+import Footer from './components/Footer';
+import './custom.css';
 
 function App() {
+  const [toggleSideMenu, setToggleSideMenu] = useState(false);
+  const [toggleDarkMode, setToggleDarkMode] = useState(false);
+
+  const toggleSideMenuHandler = () => setToggleSideMenu(!toggleSideMenu);
+  const toggleDarkModeHandler = () => setToggleDarkMode(!toggleDarkMode);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div data-bs-theme={toggleDarkMode ? "dark" : "light"}>
+      <Header toggleSideMenuHandler={toggleSideMenuHandler} toggleDarkModeHandler={toggleDarkModeHandler} toggleDarkMode={toggleDarkMode} />
+      <section className={`position-relative mt-5 pt-5 pt-md-2 pb-5 ${toggleDarkMode ? "bg-black" : "bg-info"}`}>
+        <SideMenu toggleSideMenu={toggleSideMenu} toggleDarkMode={toggleDarkMode} />
+        <Routes>
+          <Route path="/" element={<Explore />} />
+          <Route path="/:id" element={<Explore />} />
+        </Routes>
+      </section>
+      <Footer toggleDarkMode={toggleDarkMode} />
     </div>
   );
 }

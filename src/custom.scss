@@ -1,0 +1,17 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+
+
+$green: #27ae60;
+$gray: #727d92;
+$lightgray: #f5f5f5;
+
+$theme-colors: (
+    "success": $green,
+    "secondary": $gray,
+    "info": $lightgray,
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
