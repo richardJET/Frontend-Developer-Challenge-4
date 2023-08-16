@@ -25,7 +25,7 @@ export default function SideMenu({ toggleSideMenu, toggleDarkMode }: SideMenuPro
                 <p className="text-center text-success">Richard Tillo</p>
             </a>
             <ul className="list-unstyled">
-                <li className={`${toggleDarkMode ? "bg-black" : "bg-info"} p-2 `}>Browse</li>
+                <li className={`${toggleDarkMode ? "bg-black" : "bg-info"} p-2 text-info `}>Browse</li>
                 <li className="p-2">
                     <a href="https://preprlabs.org/explore" className="text-secondary text-decoration-none">
                         <img src="https://d3f06rtlkr354b.cloudfront.net/public/front/img/explore.png" alt="explore icon" className="me-4"/>Explore
@@ -52,7 +52,7 @@ export default function SideMenu({ toggleSideMenu, toggleDarkMode }: SideMenuPro
                         <span className="border border-success ms-2 p-1">Beta</span>
                     </a>
                 </li>
-                <li className={`${toggleDarkMode ? "bg-black text-light" : "bg-info"} p-2`}>My Activity</li>
+                <li className={`${toggleDarkMode ? "bg-black text-light" : "bg-info"} p-2 text-info`}>My Activity</li>
                 <li className="p-2">
                     <a href="https://preprlabs.org/my-projects" className="text-secondary text-decoration-none">
                         <img src="https://d3f06rtlkr354b.cloudfront.net/public/front/img/my_projects.png" alt="project icon" className="me-4" />Projects
