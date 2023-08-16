@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUser, faCircleQuestion, faEnvelope, faNewspaper, faBell, faCog, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
 import DarkToggle from './DarkToggle';
 
 interface HeaderProps {
@@ -28,9 +28,8 @@ export default function Header({ toggleSideMenuHandler, toggleDarkModeHandler, t
     width: '295px',
   };
 
-  
-
-  return <header className={`navbar pb-1 pb-sm-0 fixed-top navbar-expand-lg px-1 px-xl-0 border-bottom border-secondary ${toggleDarkMode ? "bg-dark-subtle" : "bg-white"}`}>
+  return (
+  <header className={`navbar pb-1 pb-sm-0 fixed-top navbar-expand-lg px-1 px-xl-0 border-bottom border-secondary ${toggleDarkMode ? "bg-dark-subtle" : "bg-white"}`}>
     <div className="container-fluid flex-nowrap flex-lg-wrap">
       <ul className="navbar-nav flex-row">
         <li className="nav-item" >
@@ -42,6 +41,7 @@ export default function Header({ toggleSideMenuHandler, toggleDarkModeHandler, t
           <button className="button-collapse d-block bg-transparent border-0 mt-1" onClick={() => toggleSideMenuHandler()}><FontAwesomeIcon icon={faBars} className='menu' /></button>
         </li>
       </ul>
+      
       <ul className="navbar-nav flex-row">
         <li>
           <DarkToggle toggleDarkModeHandler={toggleDarkModeHandler} toggleDarkMode={toggleDarkMode} />
@@ -191,6 +191,7 @@ export default function Header({ toggleSideMenuHandler, toggleDarkModeHandler, t
         </li>
       </ul>
     </div>
+
     <div className="d-block d-md-none w-100 mt-1">
       <div className="input-group" id="multiple-datasets">
         <div className="input-group-prepend d-flex">
@@ -202,4 +203,5 @@ export default function Header({ toggleSideMenuHandler, toggleDarkModeHandler, t
       </div>
     </div>
   </header>
+  );
 }
