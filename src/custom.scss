@@ -1,17 +1,22 @@
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
 
 
 
 $green: #27ae60;
 $gray: #727d92;
 $lightgray: #f5f5f5;
+$warning: #add489;
+$red: rgb(255, 0, 0);
 
 $theme-colors: (
     "success": $green,
     "secondary": $gray,
     "info": $lightgray,
+    "warning": $warning,
+    "danger": $red
 );
 
-@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@import "../node_modules/bootstrap/scss/bootstrap";

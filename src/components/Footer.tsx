@@ -3,7 +3,6 @@ interface FooterProps {
 }
 
 export default function Footer({toggleDarkMode}: FooterProps) {
-    console.log(toggleDarkMode)
     const maxWidth: React.CSSProperties = {
         maxWidth: '1440px',
     };
