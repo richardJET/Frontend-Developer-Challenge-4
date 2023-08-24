@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, faCheck, faX } from '@fortawesome/free-solid-svg-icons';
 import zxcvbn from 'zxcvbn';
 import app from './firebase';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getDatabase, ref, set } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
 import Carousel from './Carousel';
@@ -25,10 +25,21 @@ export default function Register() {
 
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     const navigate = useNavigate();
+    const provider = new GoogleAuthProvider();
 
     const progressBarStyle: React.CSSProperties = {
         width: `${(passwordScore) * 20}%`,
         backgroundColor: passwordScore === 1 ? 'red' : passwordScore === 2 ? 'orange' : passwordScore === 3 ? 'yellow' : passwordScore === 4 ? 'green' : passwordScore === 5 ? 'darkgreen' : 'white',
+    };
+
+    const handleSSO = async () => {
+        try {
+            const auth = getAuth(app);
+            await signInWithPopup(auth, provider)
+            navigate('/success');
+        } catch (err) {
+            console.error(err);
+        }
     };
 
     const hanndleRegister = async (e: ChangeEvent<HTMLFormElement>) => {
@@ -74,7 +85,7 @@ export default function Register() {
     const strengthLevel = ['Weak', 'Fair', 'Good', 'Strong', 'Very Strong'];
     
     return {strength: strengthLevel[score], score: score};
-    }
+    };
 
     const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
         const newPassword = e.target.value;
@@ -230,6 +241,8 @@ export default function Register() {
                                     </div>
                                     <div className='d-grid gap-2 mb-3'>
                                         <button className="btn btn-success text-white" type="submit">Register</button>
+                                        <p className="text-center m-0">or</p>
+                                        <button className="btn btn-danger text-white" type="button" onClick={handleSSO}>Continue with Google</button>
                                     </div>
                                 </form>
                                 <div className="text-center mb-3">

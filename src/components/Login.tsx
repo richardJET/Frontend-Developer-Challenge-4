@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import app from './firebase';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Carousel from "./Carousel";
 
@@ -9,7 +9,18 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [loginError, setLoginError] = useState(false);
 
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
+    const provider = new GoogleAuthProvider();
+
+    const handleSSO = async () => {
+        try{
+            const auth = getAuth(app);
+            await signInWithPopup(auth, provider)
+            navigate('/success');
+        }catch(err){
+            console.error(err);
+        }
+    };
 
     const handleLogin = async (e: ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -77,6 +88,8 @@ export default function Login() {
                                     <div className='d-grid gap-2 mb-3'>
                                         <button className="btn btn-success text-white" type="submit">Log in</button>
                                         {loginError && email && password ? <small className='text-danger w-100'>Your email and password combination is not recognized.</small> : null}
+                                        <p className="text-center m-0">or</p>
+                                        <button className="btn btn-danger text-white" type="button" onClick={handleSSO}>Continue with Google</button>
                                     </div>
                                 </form>
                             </div>
