@@ -67,7 +67,7 @@ export default function Login() {
                                         </div>
                                         <label htmlFor="password" hidden>Password</label>
                                         <input type="password" name="password" id="password" className="form-control" placeholder='Password' value={password} onChange={e => {setPassword(e.target.value); setLoginError(false)}} />
-                                        {loginError && email === '' ? <small className='text-danger w-100'>This field is required.</small> : null}
+                                        {loginError && password === '' ? <small className='text-danger w-100'>This field is required.</small> : null}
                                     </div>
                                     <div className="mb-3">
                                         <a href="https://preprlabs.org/password/reset" className="text-decoration-none text-end text-black d-block">
