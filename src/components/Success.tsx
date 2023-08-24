@@ -46,7 +46,7 @@ export default function Success() {
                 <p>Language: {userData.language}</p>
             </div>
             : 
-            <h2 className='container bg-white'>Not Logged In</h2>}
+            <h2 className='container bg-white'>Success</h2>}
         </section>
     );
 }
