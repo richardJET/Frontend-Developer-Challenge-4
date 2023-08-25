@@ -145,6 +145,7 @@ export default function Register() {
                                         </div>
                                         <label htmlFor="username" hidden>Username</label>
                                         <input name="username" type="text" id="username" className="form-control" placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} />
+                                        {registerError && username === '' ? <small className='text-danger w-100'>This field is required.</small> : null}
                                     </div>
                                     <div className="input-group mb-3">
                                         <div className="input-group-prepend">
