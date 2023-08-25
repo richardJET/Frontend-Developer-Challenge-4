@@ -45,7 +45,7 @@ export default function Register() {
     const hanndleRegister = async (e: ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (password === confirmPassword && passwordScore >= 4 && firstName && lastName && emailRegex.test(email) && password.length >= 8 && password.length <= 14 && /[@#$%^&*?_~()+={}[\]|;:'“<>/,-]/.test(password) && /\d/.test(password) && /[A-Z]/.test(password) && userType !== 'usertype' ) {
+        if (password === confirmPassword && passwordScore >= 4 && firstName && lastName && username && emailRegex.test(email) && password.length >= 8 && password.length <= 14 && /[@#$%^&*?_~()+={}[\]|;:'“<>/,-]/.test(password) && /\d/.test(password) && /[A-Z]/.test(password) && userType !== 'usertype' ) {
             try{
                 const auth = getAuth(app);
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -145,6 +145,7 @@ export default function Register() {
                                         </div>
                                         <label htmlFor="username" hidden>Username</label>
                                         <input name="username" type="text" id="username" className="form-control" placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} />
+                                        {registerError && username === '' ? <small className='text-danger w-100'>This field is required.</small> : null}
                                     </div>
                                     <div className="input-group mb-3">
                                         <div className="input-group-prepend">
