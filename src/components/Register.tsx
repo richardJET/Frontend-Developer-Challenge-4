@@ -45,7 +45,7 @@ export default function Register() {
     const hanndleRegister = async (e: ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (password === confirmPassword && passwordScore >= 4 && firstName && lastName && emailRegex.test(email) && password.length >= 8 && password.length <= 14 && /[@#$%^&*?_~()+={}[\]|;:'“<>/,-]/.test(password) && /\d/.test(password) && /[A-Z]/.test(password) && userType !== 'usertype' ) {
+        if (password === confirmPassword && passwordScore >= 4 && firstName && lastName && username && emailRegex.test(email) && password.length >= 8 && password.length <= 14 && /[@#$%^&*?_~()+={}[\]|;:'“<>/,-]/.test(password) && /\d/.test(password) && /[A-Z]/.test(password) && userType !== 'usertype' ) {
             try{
                 const auth = getAuth(app);
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
