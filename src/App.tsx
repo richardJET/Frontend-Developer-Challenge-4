@@ -8,6 +8,8 @@ import './custom.css';
 import Register from './components/Register';
 import Success from './components/Success';
 import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import Create from './components/Create';
 
 function App() {
   const [toggleSideMenu, setToggleSideMenu] = useState(false);
@@ -59,13 +61,39 @@ function App() {
           </main>
         } />
       <Route
-        path="success"
+        path="/success"
         element={
           <main className='d-flex flex-column min-vh-100'>
             <Success />
             <Footer toggleDarkMode={toggleDarkMode} />
           </main>
         } />
+      <Route
+        path="/user/home"
+        element={
+          <div data-bs-theme={toggleDarkMode ? "dark" : "light"}>
+            <Header toggleSideMenuHandler={toggleSideMenuHandler} toggleDarkModeHandler={toggleDarkModeHandler} toggleDarkMode={toggleDarkMode} />
+            <section className={`position-relative mt-5 pt-5 pt-md-2 pb-5 ${toggleDarkMode ? "bg-black" : "bg-info"}`}>
+              <SideMenu toggleSideMenu={toggleSideMenu} toggleDarkMode={toggleDarkMode} />
+              <Dashboard />
+            </section>
+            <Footer toggleDarkMode={toggleDarkMode} />
+          </div>
+        }
+      />
+      <Route
+        path="/create-project/0"
+        element={
+          <div data-bs-theme={toggleDarkMode ? "dark" : "light"}>
+            <Header toggleSideMenuHandler={toggleSideMenuHandler} toggleDarkModeHandler={toggleDarkModeHandler} toggleDarkMode={toggleDarkMode} />
+            <section className={`position-relative mt-5 pt-5 pt-md-2 pb-5 ${toggleDarkMode ? "bg-black" : "bg-info"}`}>
+              <SideMenu toggleSideMenu={toggleSideMenu} toggleDarkMode={toggleDarkMode} />
+              <Create />
+            </section>
+            <Footer toggleDarkMode={toggleDarkMode} />
+          </div>
+        }
+      />
     </Routes>
   );
 }
