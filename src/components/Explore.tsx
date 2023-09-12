@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react"
 import { useParams } from "react-router-dom"
+import Accessibility from "./Accessibility"
 
 export default function Explore() {
 
@@ -109,125 +110,128 @@ export default function Explore() {
     };
     
     return (
-        <div className="card mx-auto mt-2" style={maxWidth}>
-            <div className="card-body">
-                <div className="row">
-                    <div className="jumbotron container bg-success text-white p-5 text-center m-0 w-100">
-                        <h2>Welcome, <b>Richard Tillo</b></h2>
+        <>
+            <Accessibility />
+            <div className="card mx-auto mt-2" style={maxWidth}>
+                <div className="card-body">
+                    <div className="row">
+                        <div className="jumbotron container bg-success text-white p-5 text-center m-0 w-100">
+                            <h2>Welcome, <b>Richard Tillo</b></h2>
+                        </div>
                     </div>
+
+                    {id ? null :
+                    <div className="row">
+                        <div className="col-md-6 col-lg-4">
+                            <div className="card border-0">
+                                <div className="card-block">
+                                    <h3 className="card-title text-center">Recommended Challenges</h3>
+                                    <div>
+                                        <a href="https://preprlabs.org/challengeManager/future-of-technology-and-artificial-intelligence" className="text-decoration-none link-success">
+                                            <div>
+                                                    <img className="card-img-top" src="https://prepr-preprlabs-prod-bucket.s3.ca-central-1.amazonaws.com/uploads/challenge/xioCw8Gfl48spPPubzwfAc5J0wYm3wrnj3nTiVLj.png" alt="Future of Technology and Artificial Intelligence banner" />
+                                            </div>
+                                            <h5>Future of Technology and Artificial Intelligence</h5>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://preprlabs.org/challengeManager/magnet-machine-learning-1-sql" className="text-decoration-none link-success">
+                                            <div>
+                                                <img className="card-img-top" src="https://prepr-preprlabs-prod-bucket.s3.ca-central-1.amazonaws.com/uploads/challenge/SePyyhZftJxJaXQtZV7nvKxA4.png" alt="Machine Learning Engineer: SQL CHallenge banner" />
+                                            </div>
+                                            <h5>Magnet - Machine Learning 1: SQL</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-6 col-lg-4">
+                            <div className="card border-0">
+                                <div className="card-block">
+                                    <h3 className="card-title text-center">Recommended Labs</h3>
+                                    <div>
+                                        <a href="https://preprlabs.org/labs/getting-started-lab-for-business-chambers-7137-22360" className="text-decoration-none link-success">
+                                            <div>
+                                                <img className="card-img-top" src="https://prepr-preprlabs-prod-bucket.s3.ca-central-1.amazonaws.com/uploads/labs/rkVCArtK8UyOSo4HLH6QtzZbd.png" alt="Getting Started Business Chambers banner" />
+                                            </div>
+                                            <h5>Getting Started Lab For Business Chamber.</h5>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://preprlabs.org/labs/ux-feedback-lab" className="text-decoration-none link-success">
+                                            <div>
+                                                <img className="card-img-top" src="https://prepr-preprlabs-prod-bucket.s3.ca-central-1.amazonaws.com/uploads/labs/XQCvHLwke2XeHj34yugFinwYl.png" alt="UX Feedback Lab banner" />
+                                            </div>
+                                            <h5>UX Feedback Lab</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-6 col-lg-4">
+                            <div className="card border-0">
+                                <div className="card-block">
+                                    <h3 className="card-title text-center">Recommended Resources</h3>
+                                    <div>
+                                        <a href="https://preprlabs.org/resource-module/digital-skills-passport-summary/view" className="text-decoration-none link-success">
+                                            <div>
+                                                <img className="card-img-top" src="https://d3f06rtlkr354b.cloudfront.net/uploads/resources/image/yoAtcQVNr3og2nwluvrOKl4OvTFbKLKrNGePUgTV.png" alt="Skills for Success: Digital Skills & Passport Summary banner" />
+                                            </div>
+                                            <h5>Digital Skills Passport Summary</h5>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://preprlabs.org/resource-module/graphic-design-typography/view" className="text-decoration-none link-success">
+                                            <div>
+                                                <img className="card-img-top" src="https://d3f06rtlkr354b.cloudfront.net/uploads/resources/image/ydlBeJgrpDGqEKA1RB1JFbRQEUcGsi0lg0ByjQAv.jpg" alt="Typography banner" />
+                                            </div>
+                                            <h5> Graphic Design: Typography </h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>}
                 </div>
 
-                {id ? null :
-                <div className="row">
-                    <div className="col-md-6 col-lg-4">
-                        <div className="card border-0">
-                            <div className="card-block">
-                                <h3 className="card-title text-center">Recommended Challenges</h3>
-                                <div>
-                                    <a href="https://preprlabs.org/challengeManager/future-of-technology-and-artificial-intelligence" className="text-decoration-none link-success">
-                                        <div>
-                                                <img className="card-img-top" src="https://prepr-preprlabs-prod-bucket.s3.ca-central-1.amazonaws.com/uploads/challenge/xioCw8Gfl48spPPubzwfAc5J0wYm3wrnj3nTiVLj.png" alt="Future of Technology and Artificial Intelligence banner" />
-                                        </div>
-                                        <h5>Future of Technology and Artificial Intelligence</h5>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="https://preprlabs.org/challengeManager/magnet-machine-learning-1-sql" className="text-decoration-none link-success">
-                                        <div>
-                                            <img className="card-img-top" src="https://prepr-preprlabs-prod-bucket.s3.ca-central-1.amazonaws.com/uploads/challenge/SePyyhZftJxJaXQtZV7nvKxA4.png" alt="Machine Learning Engineer: SQL CHallenge banner" />
-                                        </div>
-                                        <h5>Magnet - Machine Learning 1: SQL</h5>
-                                    </a>
+                <div className="card-body">
+                    <div className="row">
+                        <div className="col d-flex align-items-center">
+                            Explore
+                        </div>
+                        <div className="col">
+                            <div className="float-start float-md-end">
+                                <div className="btn-group">
+                                    <a className={`btn border ${id ? null : "link-success bg-info"}`} href="/">Challenges</a>
+                                    <a className={`btn border ${id === "labs" ? "link-success bg-info" : null }`} href="/labs">Labs</a>
+                                    <a className={`btn border ${id === "projects" ? "link-success bg-info" : null}`} href="/projects">Projects</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-6 col-lg-4">
-                        <div className="card border-0">
-                            <div className="card-block">
-                                <h3 className="card-title text-center">Recommended Labs</h3>
-                                <div>
-                                    <a href="https://preprlabs.org/labs/getting-started-lab-for-business-chambers-7137-22360" className="text-decoration-none link-success">
-                                        <div>
-                                            <img className="card-img-top" src="https://prepr-preprlabs-prod-bucket.s3.ca-central-1.amazonaws.com/uploads/labs/rkVCArtK8UyOSo4HLH6QtzZbd.png" alt="Getting Started Business Chambers banner" />
-                                        </div>
-                                        <h5>Getting Started Lab For Business Chamber.</h5>
-                                    </a>
+                    {listItems.map( item => (
+                        <div className="row border-bottom border-secondary py-4" key={item.href}>
+                            <div className="col-sm-5">
+                                <a href={item.href}>
+                                    <img src={item.src} className="img-responsive mw-100" alt={`banner for ${item.title}`} />
+                                </a>
+                            </div>
+                            <div className="col-sm-7">
+                                <a href={item.href} className="text-decoration-none link-success">
+                                    <h4>{item.title}</h4>
+                                </a>
+                                <div className="text-secondary mb-3">
+                                    {id === "labs" ? "Labs" : id === "projects" ? "Projects" : "Challenges"}
                                 </div>
-                                <div>
-                                    <a href="https://preprlabs.org/labs/ux-feedback-lab" className="text-decoration-none link-success">
-                                        <div>
-                                            <img className="card-img-top" src="https://prepr-preprlabs-prod-bucket.s3.ca-central-1.amazonaws.com/uploads/labs/XQCvHLwke2XeHj34yugFinwYl.png" alt="UX Feedback Lab banner" />
-                                        </div>
-                                        <h5>UX Feedback Lab</h5>
-                                    </a>
+                                <p className="mb-3 mb-lg-5">{item.description}</p>
+                                <div className="text-end">
+                                    <a href={item.href} className="text-decoration-none link-success">View</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-md-6 col-lg-4">
-                        <div className="card border-0">
-                            <div className="card-block">
-                                <h3 className="card-title text-center">Recommended Resources</h3>
-                                <div>
-                                    <a href="https://preprlabs.org/resource-module/digital-skills-passport-summary/view" className="text-decoration-none link-success">
-                                        <div>
-                                            <img className="card-img-top" src="https://d3f06rtlkr354b.cloudfront.net/uploads/resources/image/yoAtcQVNr3og2nwluvrOKl4OvTFbKLKrNGePUgTV.png" alt="Skills for Success: Digital Skills & Passport Summary banner" />
-                                        </div>
-                                        <h5>Digital Skills Passport Summary</h5>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="https://preprlabs.org/resource-module/graphic-design-typography/view" className="text-decoration-none link-success">
-                                        <div>
-                                            <img className="card-img-top" src="https://d3f06rtlkr354b.cloudfront.net/uploads/resources/image/ydlBeJgrpDGqEKA1RB1JFbRQEUcGsi0lg0ByjQAv.jpg" alt="Typography banner" />
-                                        </div>
-                                        <h5> Graphic Design: Typography </h5>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>}
-            </div>
-
-            <div className="card-body">
-                <div className="row">
-                    <div className="col d-flex align-items-center">
-                        Explore
-                    </div>
-                    <div className="col">
-                        <div className="float-start float-md-end">
-                            <div className="btn-group">
-                                <a className={`btn border ${id ? null : "link-success bg-info"}`} href="/">Challenges</a>
-                                <a className={`btn border ${id === "labs" ? "link-success bg-info" : null }`} href="/labs">Labs</a>
-                                <a className={`btn border ${id === "projects" ? "link-success bg-info" : null}`} href="/projects">Projects</a>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
-                {listItems.map( item => (
-                    <div className="row border-bottom border-secondary py-4" key={item.href}>
-                        <div className="col-sm-5">
-                            <a href={item.href}>
-                                <img src={item.src} className="img-responsive mw-100" alt={`banner for ${item.title}`} />
-                            </a>
-                        </div>
-                        <div className="col-sm-7">
-                            <a href={item.href} className="text-decoration-none link-success">
-                                <h4>{item.title}</h4>
-                            </a>
-                            <div className="text-secondary mb-3">
-                                {id === "labs" ? "Labs" : id === "projects" ? "Projects" : "Challenges"}
-                            </div>
-                            <p className="mb-3 mb-lg-5">{item.description}</p>
-                            <div className="text-end">
-                                <a href={item.href} className="text-decoration-none link-success">View</a>
-                            </div>
-                        </div>
-                    </div>
-                ))}
             </div>
-        </div>
+        </>
     );
 }
